@@ -14,8 +14,8 @@ def get_all():
 
 @app.route("/current/")
 def get_current():
-    #medida = sr.get_data()
-    medida = 12,12,12,12,12,12
+    medida = sr.get_data()
+    #medida = 12,12,12,12,12,12
     return jsonify({"time":medida[0],"tmp":medida[1],"hr":medida[2],"ht":medida[3],"luz":medida[4],"distancia":medida[5]})
 
 
