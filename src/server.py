@@ -2,7 +2,7 @@ from flask import Flask,jsonify
 import db.medidas as m
 import os
 import serie.serie as sr
-
+from datetime import datetime
 app = Flask(__name__)
 
 @app.route("/all")
@@ -16,10 +16,11 @@ def get_all():
 def get_current():
     medida = sr.get_data()
     #medida = 12,12,12,12,12,12
-    return jsonify({"time":medida[0],"tmp":medida[1],"hr":medida[2],"ht":medida[3],"luz":medida[4],"distancia":medida[5]})
+    return jsonify({"time":str(datetime.now()),"tmp":medida[0],"hr":medida[1],"ht":medida[2],"luz":medida[3],"distancia":medida[4]})
 
 
 if __name__ == "__main__":
     if not os.path.isfile("./db/example.db"):
         m.medidas().init_db()
     app.run(debug=True)
+

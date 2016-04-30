@@ -41,7 +41,7 @@ def getConfig():
 def get_data():
     open()
     ser.write("all\n")
-    datos = ser.read(1024).split("\n")[0].split(",")
+    datos = ser.read(1024).split("\r")[0].split(",")
     close()
     return datos
 
