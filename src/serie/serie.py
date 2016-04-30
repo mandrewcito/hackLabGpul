@@ -10,7 +10,7 @@ Script para la comunicación por medio de puerto serie con el Arduino monitor de
 
 import serial
 import time
-
+import db.medidas as m 
 PORT = '/dev/ttyACM0'
 BAUD = 115200
 TIMEOUT = 0.01
@@ -40,5 +40,21 @@ def setConfig(port=PORT, baud=BAUD, timeout=TIMEOUT):
 def getConfig():
   return {'port':ser.port, 'baudrate':ser.baudrate, 'timeout':ser.timeout}
 
+def get_data():
+    open()
+    ser.write("all\n")
+    datos = ser.read(1024).split("\n")[0].split(",")
+    close()
+    return datos
 
+def main()
+    datos = get_data()
+    m.insert(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
+    
 
+if __name__ == "__main__":
+    open()
+    ser.write("all\n")
+    datos = ser.read(1024).split("\n")[0].split(",")
+    m.insert(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
+    close()
