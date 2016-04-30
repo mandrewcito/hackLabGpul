@@ -5,6 +5,7 @@ from commands.Stop import Stop
 from commands.Help import Help
 from commands.Temp import Temp
 from commands.Echo import Echo
+from commands.Orchard import Orchard
 from commands.Doorbell import Doorbell
 #from nodebase.DomoticNodes import DomoticNodes
 #from nodebase.NodePresence import NodePresence
@@ -23,7 +24,8 @@ class DomoticBot:
         self.handlers = [
             Start(self.bot, self.users),
             Stop(self.bot, self.users),
-            Echo(self.bot, self.users)
+            Echo(self.bot, self.users),
+            Orchard(self.bot, self.users)
         ]
         #    Help(self.bot),
         #    Doorbell(self.bot,self.domoticNodes),
