@@ -30,8 +30,6 @@ def open():
 def close():
   ser.close()
 
-
-
 def setConfig(port=PORT, baud=BAUD, timeout=TIMEOUT):
   ser.port = port
   ser.baudrate = baudrate
@@ -47,7 +45,7 @@ def get_data():
     close()
     return datos
 
-def main()
+def main():
     datos = get_data()
     m.insert(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
     
