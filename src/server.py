@@ -1,5 +1,7 @@
 from flask import Flask,jsonify
 import db.medidas as m
+import os
+
 app = Flask(__name__)
 
 @app.route("/all")
@@ -10,4 +12,6 @@ def get_all():
     return jsonify({"medidas":medidas})
 
 if __name__ == "__main__":
+    if not os.path.isfile("./db/example.db"):
+        m.medidas().init_db()
     app.run(debug=True)
