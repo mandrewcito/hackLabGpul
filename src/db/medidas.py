@@ -11,6 +11,10 @@ def get_all():
     bd.close()
     return data
 
+def get_last():
+   medidas = get_all()
+   return medidas[len(medidas)-1]
+
 class medidas():
     def __init__(self):
         self.conn = sqlite3.connect('db/example.db')

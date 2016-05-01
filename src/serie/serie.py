@@ -13,7 +13,7 @@ import time
 import db.medidas as m 
 PORT = '/dev/ttyACM0'
 BAUD = 115200
-TIMEOUT = 0.01
+TIMEOUT = 2.01
 
 ser = serial.Serial()
 
@@ -47,12 +47,12 @@ def get_data():
 
 def main():
     datos = get_data()
-    m.insert(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
+    m.insertar(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
     
 
 if __name__ == "__main__":
     open()
     ser.write("all\n")
     datos = ser.read(1024).split("\n")[0].split(",")
-    m.insert(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
+    m.insertar(float(datos[0]),float(datos[1]),float(datos[2]),float(datos[3]),float(datos[4]))
     close()
